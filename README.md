@@ -51,10 +51,10 @@ docker push xushikuan/alpine-build:1.0
 
 ### Feature
 
-* [NEW] Support for Go Modules [](#2)
+* [NEW] Support for Go Modules [#17](https://github.com/sillyhatxu/convenient-utils/issues/17)
 
 ---
 
 ### Bug fix
 
-* [FIX] Truncate Latency precision in long running request [](#2)
+* [FIX] Truncate Latency precision in long running request [#17](https://github.com/sillyhatxu/convenient-utils/issues/17)
