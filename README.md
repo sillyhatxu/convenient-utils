@@ -46,3 +46,15 @@ docker build -t xushikuan/alpine-build .
 docker tag xushikuan/alpine-build:latest xushikuan/alpine-build:1.0
 docker push xushikuan/alpine-build:1.0
 ```
+
+# Release Template
+
+### Feature
+
+* [NEW] Support for Go Modules [](#2)
+
+---
+
+### Bug fix
+
+* [FIX] Truncate Latency precision in long running request [](#2)
