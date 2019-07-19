@@ -2,9 +2,9 @@ package logconfig
 
 import (
 	"fmt"
-	"github.com/bshuster-repo/logrus-logstash-hook"
 	"github.com/lestrrat-go/file-rotatelogs"
 	"github.com/rifflock/lfshook"
+	"github.com/sillyhatxu/convenient-utils/logstashhook"
 	log "github.com/sirupsen/logrus"
 	logger "log"
 	"net"
@@ -75,7 +75,7 @@ func (lc logConfig) InitialLogConfig() {
 		if err != nil {
 			logger.Panicf("net.Dial('tcp', %v); Error : %v", lc.logstashAddress, err)
 		}
-		hook := logrustash.New(conn, logrustash.DefaultFormatter(log.Fields{"project": lc.project, "module": lc.module}))
+		hook := logstashhook.New(conn, logstashhook.DefaultFormatter(log.Fields{"project": lc.project, "module": lc.module}))
 		log.AddHook(hook)
 	}
 	if lc.openLogfile {
