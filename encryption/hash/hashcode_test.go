@@ -1,4 +1,4 @@
-package uuid
+package hash
 
 import (
 	"encoding/hex"

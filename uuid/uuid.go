@@ -3,14 +3,14 @@ package uuid
 import (
 	"github.com/oklog/ulid"
 	"github.com/satori/go.uuid"
-	"github.com/sillyhatxu/sillyhat-cloud-utils/encryption/hash"
+	"github.com/sillyhatxu/convenient-utils/encryption/hash"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
-func UUIDV4() string {
-	u := uuid.Must(uuid.NewV4())
-	return u.String()
+func V4() string {
+	return uuid.NewV4().String()
 }
 
 func UUID() string {
@@ -27,9 +27,9 @@ func randomSrc() string {
 }
 
 func ShortId() string {
-	shortId, err := hash.HashValue32(UUID())
+	shortId, err := hash.Hash32(UUID())
 	if err != nil {
 		return UUID()
 	}
-	return randomSrc() + shortId
+	return randomSrc() + strconv.FormatUint(uint64(shortId), 10)
 }
