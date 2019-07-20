@@ -58,3 +58,10 @@ docker push xushikuan/alpine-build:1.0
 ### Bug fix
 
 * [FIX] Truncate Latency precision in long running request [#17](https://github.com/sillyhatxu/convenient-utils/issues/17)
+
+###
+
+```
+git tag v1.0.1
+git push origin v1.0.1
+```
