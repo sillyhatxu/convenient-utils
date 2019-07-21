@@ -6,11 +6,16 @@ import (
 	"github.com/sillyhatxu/convenient-utils/encryption/hash"
 	"math/rand"
 	"strconv"
+	"strings"
 	"time"
 )
 
 func V4() string {
 	return uuid.NewV4().String()
+}
+
+func V4Upper32() string {
+	return strings.ToUpper(strings.ReplaceAll(uuid.NewV4().String(), "-", ""))
 }
 
 func UUID() string {
