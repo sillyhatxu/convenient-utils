@@ -3,8 +3,8 @@ package header
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
+	"github.com/sillyhatxu/convenient-utils/webjwt"
 	"golang.org/x/text/language"
-	"sillyhat-cloud-utils/webjwt"
 )
 
 const UseJWTKey = "USE_JWT"

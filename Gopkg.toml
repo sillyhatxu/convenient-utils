@@ -82,10 +82,6 @@
   version = "0.0.1"
 
 [[constraint]]
-  branch = "master"
-  name = "github.com/sillyhatxu/sillyhat-cloud-utils"
-
-[[constraint]]
   name = "github.com/sirupsen/logrus"
   version = "1.4.2"
 
