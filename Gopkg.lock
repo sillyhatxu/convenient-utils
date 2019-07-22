@@ -42,6 +42,18 @@
   version = "v3.2.0"
 
 [[projects]]
+  digest = "1:0f962ac2ec06a47904ee17ac9afb9d749eaa6c864b7943fc7579a77940b6adde"
+  name = "github.com/emirpasic/gods"
+  packages = [
+    "containers",
+    "sets",
+    "utils",
+  ]
+  pruneopts = "UT"
+  revision = "1615341f118ae12f353cc8a983f35b584342c9b3"
+  version = "v1.12.0"
+
+[[projects]]
   digest = "1:3ee1d175a75b911a659fbd860060874c4f503e793c5870d13e5a0ede529a63cf"
   name = "github.com/gin-contrib/sse"
   packages = ["."]
@@ -87,9 +99,15 @@
   version = "v1.4.1"
 
 [[projects]]
-  digest = "1:573ca21d3669500ff845bdebee890eb7fc7f0f50c59f2132f2a0c6b03d85086a"
+  digest = "1:f5ce1529abc1204444ec73779f44f94e2fa8fcdb7aca3c355b0c95947e4005c6"
   name = "github.com/golang/protobuf"
-  packages = ["proto"]
+  packages = [
+    "proto",
+    "ptypes",
+    "ptypes/any",
+    "ptypes/duration",
+    "ptypes/timestamp",
+  ]
   pruneopts = "UT"
   revision = "6c65a5562fc06764971b7c5d05c76c75e84bdbf7"
   version = "v1.3.2"
@@ -262,6 +280,22 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:b5936d38011189ba9b2e5890a38c7ffe0ac7f157eef2ddc0fe752117c50d394d"
+  name = "golang.org/x/net"
+  packages = [
+    "context",
+    "http/httpguts",
+    "http2",
+    "http2/hpack",
+    "idna",
+    "internal/timeseries",
+    "trace",
+  ]
+  pruneopts = "UT"
+  revision = "da137c7871d730100384dbcf36e6f8fa493aef5b"
+
+[[projects]]
+  branch = "master"
   digest = "1:5632b0c4d972da51b5914f09fc5c1a8535e9d8d5d937e95ef83c423a0dd67f13"
   name = "golang.org/x/sys"
   packages = ["unix"]
@@ -269,15 +303,25 @@
   revision = "fae7ac547cb717d141c433a2a173315e216b64c4"
 
 [[projects]]
-  digest = "1:d55e0738476edb61bb4f763f407b80df7243480b84ba46ddeda64e43c26a7136"
+  digest = "1:8d8faad6b12a3a4c819a3f9618cb6ee1fa1cfc33253abeeea8b55336721e3405"
   name = "golang.org/x/text"
   packages = [
+    "collate",
+    "collate/build",
+    "internal/colltab",
     "internal/gen",
     "internal/language",
     "internal/language/compact",
     "internal/tag",
+    "internal/triegen",
+    "internal/ucd",
     "language",
+    "secure/bidirule",
+    "transform",
+    "unicode/bidi",
     "unicode/cldr",
+    "unicode/norm",
+    "unicode/rangetable",
   ]
   pruneopts = "UT"
   revision = "342b2e1fbaa52c93f31447ad2c6abc048c63e475"
@@ -298,6 +342,56 @@
   pruneopts = "UT"
   revision = "b2f4a3cf3c67576a2ee09e1fe62656a5086ce880"
   version = "v1.6.1"
+
+[[projects]]
+  branch = "master"
+  digest = "1:583a0c80f5e3a9343d33aea4aead1e1afcc0043db66fdf961ddd1fe8cd3a4faf"
+  name = "google.golang.org/genproto"
+  packages = ["googleapis/rpc/status"]
+  pruneopts = "UT"
+  revision = "c506a9f9061087022822e8da603a52fc387115a8"
+
+[[projects]]
+  digest = "1:cf01ae0753310464677058b125fa31e74fd943781782ada503180ad784fc83d3"
+  name = "google.golang.org/grpc"
+  packages = [
+    ".",
+    "balancer",
+    "balancer/base",
+    "balancer/roundrobin",
+    "binarylog/grpc_binarylog_v1",
+    "codes",
+    "connectivity",
+    "credentials",
+    "credentials/internal",
+    "encoding",
+    "encoding/proto",
+    "grpclog",
+    "internal",
+    "internal/backoff",
+    "internal/balancerload",
+    "internal/binarylog",
+    "internal/channelz",
+    "internal/envconfig",
+    "internal/grpcrand",
+    "internal/grpcsync",
+    "internal/syscall",
+    "internal/transport",
+    "keepalive",
+    "metadata",
+    "naming",
+    "peer",
+    "resolver",
+    "resolver/dns",
+    "resolver/passthrough",
+    "serviceconfig",
+    "stats",
+    "status",
+    "tap",
+  ]
+  pruneopts = "UT"
+  revision = "1d89a3c832915b2314551c1d2a506874d62e53f7"
+  version = "v1.22.0"
 
 [[projects]]
   digest = "1:cbc72c4c4886a918d6ab4b95e347ffe259846260f99ebdd8a198c2331cf2b2e9"
@@ -323,9 +417,11 @@
     "github.com/aliyun/aliyun-oss-go-sdk/oss",
     "github.com/bsm/redis-lock",
     "github.com/dgrijalva/jwt-go",
+    "github.com/emirpasic/gods/sets",
     "github.com/gin-gonic/gin",
     "github.com/go-redis/redis",
     "github.com/go-sql-driver/mysql",
+    "github.com/golang/protobuf/proto",
     "github.com/lestrrat-go/file-rotatelogs",
     "github.com/mitchellh/mapstructure",
     "github.com/oklog/ulid",
@@ -337,7 +433,9 @@
     "github.com/sirupsen/logrus",
     "github.com/streadway/amqp",
     "github.com/stretchr/testify/assert",
+    "golang.org/x/net/context",
     "golang.org/x/text/language",
+    "google.golang.org/grpc",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
