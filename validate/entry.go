@@ -9,6 +9,7 @@ import (
 type Entry struct {
 }
 
+//https://github.com/astaxie/beego
 func (v *Entry) Validate(obj interface{}) (bool, error) {
 	objT := reflect.TypeOf(obj)
 	objV := reflect.ValueOf(obj)
