@@ -38,6 +38,13 @@ func (h Hook) Fire(e *logrus.Entry) error {
 		return err
 	}
 	_, err = h.writer.Write(dataBytes)
+	//if err != nil {
+	//write tcp [::1]:60786->[::1]:51401: write: broken pipe
+	//Failed to fire hook: dial tcp 127.0.0.1:51401: connect: connection refused
+	//if strings.ContainsAny(err.Error(), "broken pipe"){
+	//
+	//}
+	//}
 	return err
 }
 
