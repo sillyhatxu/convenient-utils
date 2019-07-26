@@ -1,8 +1,8 @@
 package logconfig
 
 import (
+	"github.com/sillyhatxu/convenient-utils/gotime"
 	"github.com/sirupsen/logrus"
-	"go-utils/gotime"
 	"testing"
 	"time"
 )
