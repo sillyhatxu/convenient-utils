@@ -54,12 +54,11 @@
   version = "v1.12.0"
 
 [[projects]]
-  digest = "1:3ee1d175a75b911a659fbd860060874c4f503e793c5870d13e5a0ede529a63cf"
+  digest = "1:a4b5a6b32f33323c7850fae4ec085a0fbac3be93c057b6b8cef5bcabe24645ac"
   name = "github.com/gin-contrib/sse"
   packages = ["."]
   pruneopts = "UT"
-  revision = "54d8467d122d380a14768b6b4e5cd7ca4755938f"
-  version = "v0.1.0"
+  revision = "5545eab6dad3bbbd6c5ae9186383c2a9d23c0dae"
 
 [[projects]]
   digest = "1:d8bd2a337f6ff2188e08f72c614f2f3f0fd48e6a7b37a071b197e427d77d3a47"
@@ -99,20 +98,20 @@
   version = "v1.4.1"
 
 [[projects]]
-  digest = "1:573ca21d3669500ff845bdebee890eb7fc7f0f50c59f2132f2a0c6b03d85086a"
+  digest = "1:318f1c959a8a740366fce4b1e1eb2fd914036b4af58fbd0a003349b305f118ad"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
   pruneopts = "UT"
-  revision = "6c65a5562fc06764971b7c5d05c76c75e84bdbf7"
-  version = "v1.3.2"
+  revision = "c823c79ea1570fb5ff454033735a8e68575d1d0f"
+  version = "v1.3.0"
 
 [[projects]]
-  digest = "1:709cd2a2c29cc9b89732f6c24846bbb9d6270f28ef5ef2128cc73bd0d6d7bff9"
+  digest = "1:f5a2051c55d05548d2d4fd23d244027b59fbd943217df8aa3b5e170ac2fd6e1b"
   name = "github.com/json-iterator/go"
   packages = ["."]
   pruneopts = "UT"
-  revision = "27518f6661eba504be5a7a9a9f6d9460d892ade3"
-  version = "v1.1.7"
+  revision = "0ff49de124c6f76f8494e194af75bde0f1a49a29"
+  version = "v1.1.6"
 
 [[projects]]
   digest = "1:31e761d97c76151dde79e9d28964a812c46efc5baee4085b86f68f0c654450de"
@@ -142,12 +141,25 @@
   revision = "5c849dd2c51dd10faf5f1b86abec2db1ac3b9101"
 
 [[projects]]
-  digest = "1:9b90c7639a41697f3d4ad12d7d67dfacc9a7a4a6e0bbfae4fc72d0da57c28871"
+  branch = "master"
+  digest = "1:ad157c87bae81a72ca4cc7b5d2da8907eeedf060ac9828833bfa3013982f6f66"
+  name = "github.com/mailru/easyjson"
+  packages = [
+    ".",
+    "buffer",
+    "jlexer",
+    "jwriter",
+  ]
+  pruneopts = "UT"
+  revision = "b2ccc519800e761ac8000b95e5d57c80a897ff9e"
+
+[[projects]]
+  digest = "1:e150b5fafbd7607e2d638e4e5cf43aa4100124e5593385147b0a74e2733d8b0d"
   name = "github.com/mattn/go-isatty"
   packages = ["."]
   pruneopts = "UT"
-  revision = "1311e847b0cb909da63b5fecfb5370aa66236465"
-  version = "v0.0.8"
+  revision = "c2a7a6ca930a4cd0bc33a3f298eb71960732a3a7"
+  version = "v0.0.7"
 
 [[projects]]
   digest = "1:53bc4cd4914cd7cd52139990d5170d6dc99067ae31c56530621b18b35fc30318"
@@ -180,6 +192,18 @@
   pruneopts = "UT"
   revision = "be3bccf06dda9a40aa6800c4736ac77f2fef987f"
   version = "v2.0.2"
+
+[[projects]]
+  digest = "1:2bf1079dc711508d423f2d1bcb97078f0a015152433b02858e681006fcb1147f"
+  name = "github.com/olivere/elastic"
+  packages = [
+    ".",
+    "config",
+    "uritemplates",
+  ]
+  pruneopts = "UT"
+  revision = "2ce6dee3af14e17dc059746a1de4f983169030e9"
+  version = "v6.2.21"
 
 [[projects]]
   digest = "1:808cdddf087fb64baeae67b8dfaee2069034d9704923a3cb8bd96a995421a625"
@@ -229,8 +253,8 @@
     "uuid",
   ]
   pruneopts = "UT"
-  revision = "e68f53b6a6f3c9005cd7e92b29d5dd66b7ddd607"
-  version = "v0.0.3"
+  revision = "a21c73c67d8c467acfa18eb844bc9f3808862a79"
+  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -265,12 +289,12 @@
   version = "v1.3.0"
 
 [[projects]]
-  digest = "1:5a1cf4e370bc86137b58da2ae065e76526d32b11f62a7665f36dbd5f41fa95ff"
+  digest = "1:d0072748c62defde1ad99dde77f6ffce492a0e5aea9204077e497c7edfb86653"
   name = "github.com/ugorji/go"
   packages = ["codec"]
   pruneopts = "UT"
-  revision = "23ab95ef5dc3b70286760af84ce2327a2b64ed62"
-  version = "v1.1.7"
+  revision = "2adff0894ba3bc2eeb9f9aea45fefd49802e1a13"
+  version = "v1.1.4"
 
 [[projects]]
   branch = "master"
@@ -278,7 +302,7 @@
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "94b544f455efde7a614f75a3e43a2a65bce93113"
+  revision = "fc99dfbffb4e5ed5758a37e31dd861afe285406b"
 
 [[projects]]
   digest = "1:d55e0738476edb61bb4f763f407b80df7243480b84ba46ddeda64e43c26a7136"
@@ -342,6 +366,7 @@
     "github.com/lestrrat-go/file-rotatelogs",
     "github.com/mitchellh/mapstructure",
     "github.com/oklog/ulid",
+    "github.com/olivere/elastic",
     "github.com/patrickmn/go-cache",
     "github.com/rifflock/lfshook",
     "github.com/satori/go.uuid",
