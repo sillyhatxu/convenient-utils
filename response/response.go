@@ -3,10 +3,11 @@ package response
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"golang.org/x/text/language"
 )
 
-type ResponseEntity struct {
+type Entity struct {
 	Code  ResponseCode `json:"code"`
 	Data  interface{}  `json:"data"`
 	Msg   string       `json:"message"`
@@ -56,8 +57,8 @@ func (rm ResponseMessage) GetResponseMessage(languageTag language.Tag) string {
 	}
 }
 
-func ServerSuccess(data interface{}, extra interface{}) *ResponseEntity {
-	return &ResponseEntity{
+func ServerSuccess(data interface{}, extra interface{}) *Entity {
+	return &Entity{
 		Code:  Success,
 		Data:  data,
 		Msg:   SuccessMessage.GetResponseMessage(language.English),
@@ -130,5 +131,14 @@ func (re *SillyHatError) Error() string {
 		return fmt.Sprintf(string(reJSON), re.Args)
 	} else {
 		return string(reJSON)
+	}
+}
+
+func HTMLSuccess(data interface{}, extra interface{}) gin.H {
+	return gin.H{
+		"code":    Success,
+		"data":    data,
+		"message": SuccessMessage.GetResponseMessage(language.English),
+		"extra":   extra,
 	}
 }
