@@ -1,7 +1,6 @@
 package logstashhook
 
 import (
-	"fmt"
 	"github.com/sirupsen/logrus"
 	"io"
 	"sync"
@@ -38,9 +37,9 @@ func (h Hook) Fire(e *logrus.Entry) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("---------------------------------------------")
-	fmt.Println(string(dataBytes))
-	fmt.Println("---------------------------------------------")
+	//fmt.Println("---------------------------------------------")
+	//fmt.Println(string(dataBytes))
+	//fmt.Println("---------------------------------------------")
 	_, err = h.writer.Write(dataBytes)
 	//if err != nil {
 	//write tcp [::1]:60786->[::1]:51401: write: broken pipe
