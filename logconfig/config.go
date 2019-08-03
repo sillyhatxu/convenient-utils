@@ -92,19 +92,17 @@ func (lc logConfig) InitialLogConfig() {
 		logrus.AddHook(hook)
 	}
 	if lc.openLogfile {
-		logPath := lc.filePath + lc.module + "/"
-		if !exists(logPath) {
-			err := createFolder(logPath)
+		if !exists(lc.filePath) {
+			err := createFolder(lc.filePath)
 			if err != nil {
 				panic(fmt.Sprintf("createFolder error; Error : %v", err))
 			}
 		}
-		path := logPath + lc.module + ".log"
 		WithMaxAge := time.Duration(876000) * time.Hour
 		WithRotationTime := time.Duration(24) * time.Hour
 		infoWriter, err := rotatelogs.New(
-			logPath+"info.log.%Y%m%d",
-			rotatelogs.WithLinkName(path),
+			lc.filePath+"info.log.%Y%m%d",
+			rotatelogs.WithLinkName(lc.filePath+lc.module+"-info.log"),
 			rotatelogs.WithMaxAge(WithMaxAge),
 			rotatelogs.WithRotationTime(WithRotationTime),
 		)
@@ -112,8 +110,8 @@ func (lc logConfig) InitialLogConfig() {
 			panic(fmt.Sprintf("rotatelogs.New [info writer] error; Error : %v", err))
 		}
 		errorWriter, err := rotatelogs.New(
-			logPath+"error.log.%Y%m%d",
-			rotatelogs.WithLinkName(path),
+			lc.filePath+"error.log.%Y%m%d",
+			rotatelogs.WithLinkName(lc.filePath+lc.module+"-error.log"),
 			rotatelogs.WithMaxAge(WithMaxAge),
 			rotatelogs.WithRotationTime(WithRotationTime),
 		)
