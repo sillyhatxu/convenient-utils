@@ -42,9 +42,9 @@ RUN apk add --no-cache ca-certificates
 ## alpine-build build
 
 ```
-docker build -t xushikuan/alpine-build .
-docker tag xushikuan/alpine-build:latest xushikuan/alpine-build:1.0
-docker push xushikuan/alpine-build:1.0
+docker build -t xushikuan/temp-backend .
+docker tag xushikuan/temp-backend:latest xushikuan/temp-backend:1.0
+docker push xushikuan/temp-backend:1.0
 ```
 
 # Release Template
