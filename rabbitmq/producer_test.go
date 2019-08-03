@@ -2,7 +2,7 @@ package rabbitmq
 
 import (
 	"encoding/json"
-	"github.com/sillyhatxu/go-utils/uuid"
+	"github.com/sillyhatxu/convenient-utils/uuid"
 	"github.com/stretchr/testify/assert"
 	"strconv"
 	"testing"

@@ -3,7 +3,8 @@ package redislock
 import (
 	"errors"
 	"github.com/bsm/redis-lock"
-	redis "github.com/sillyhatxu/go-utils/redis/goredis"
+	"github.com/sillyhatxu/convenient-utils/.vendor-new/github.com/bsm/redis-lock"
+	redis "github.com/sillyhatxu/convenient-utils/redis/goredis"
 	log "github.com/sirupsen/logrus"
 	"time"
 )

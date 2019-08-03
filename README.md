@@ -18,7 +18,7 @@ dep ensure -add github.com/foo/bar@1.0.0 github.com/foo/baz@master
 ## Updating dependencies
 
 ```
-dep ensure -update github.com/sillyhatxu/go-utils
+dep ensure -update github.com/sillyhatxu/convenient-utils
 
 dep ensure -update
 ```

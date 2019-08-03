@@ -9,8 +9,17 @@ import (
 
 func init() {
 	logConfig := NewLogConfig(
-		logrus.InfoLevel, true, "test-backend", "test-backend", true, "logstash:5000", false, "",
+		logrus.InfoLevel,
+		true,
+		"test-backend",
+		"test-backend",
+		true,
+		//"logstash:5000",
+		"localhost:5000",
+		true,
+		"/Users/shikuanxu/go/src/github.com/sillyhatxu/convenient-utils/logs",
 	)
+
 	logConfig.InitialLogConfig()
 }
 

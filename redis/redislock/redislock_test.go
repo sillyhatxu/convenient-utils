@@ -1,7 +1,7 @@
 package redislock
 
 import (
-	redis "github.com/sillyhatxu/go-utils/redis/goredis"
+	redis "github.com/sillyhatxu/convenient-utils/redis/goredis"
 	log "github.com/sirupsen/logrus"
 	"strconv"
 	"testing"

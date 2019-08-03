@@ -64,6 +64,17 @@ func (lc logConfig) InitialLogConfig() {
 			logrus.FieldKeyTime: "@timestamp",
 		},
 	}
+	logTextFormatter := &logrus.TextFormatter{
+		DisableColors:    true,
+		FullTimestamp:    true,
+		TimestampFormat:  string("2006-01-02 15:04:05"),
+		QuoteEmptyFields: true,
+		FieldMap: *&logrus.FieldMap{
+			logrus.FieldKeyMsg:  "message",
+			logrus.FieldKeyTime: "timestamp",
+		},
+	}
+
 	logrus.SetOutput(os.Stdout)
 	logrus.SetLevel(lc.logLevel)
 	logrus.SetReportCaller(lc.reportCaller)
@@ -115,14 +126,14 @@ func (lc logConfig) InitialLogConfig() {
 				logrus.WarnLevel:  infoWriter,
 				logrus.ErrorLevel: infoWriter,
 			},
-			logFormatter,
+			logTextFormatter,
 		))
 		logrus.AddHook(lfshook.NewHook(
 			lfshook.WriterMap{
 				logrus.WarnLevel:  errorWriter,
 				logrus.ErrorLevel: errorWriter,
 			},
-			logFormatter,
+			logTextFormatter,
 		))
 	}
 }
