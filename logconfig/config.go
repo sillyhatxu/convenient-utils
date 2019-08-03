@@ -7,7 +7,6 @@ import (
 	"github.com/sillyhatxu/convenient-utils/logstashhook"
 	"github.com/sillyhatxu/convenient-utils/tcpclient"
 	"github.com/sirupsen/logrus"
-	"log"
 	"os"
 	"time"
 )
@@ -56,7 +55,7 @@ func (lc logConfig) String() string {
 }
 
 func (lc logConfig) InitialLogConfig() {
-	log.Println("InitialLogConfig :", lc)
+	fmt.Println("InitialLogConfig :", lc)
 	logFormatter := &logrus.JSONFormatter{
 		TimestampFormat: time.RFC3339Nano,
 		//TimestampFormat:string("2006-01-02 15:04:05"),
@@ -76,7 +75,7 @@ func (lc logConfig) InitialLogConfig() {
 			logrus.Fatal(err)
 		}
 		if err != nil {
-			log.Panicf("net.Dial(tcp, %v); Error : %v", lc.logstashAddress, err)
+			panic(fmt.Sprintf("net.Dial(tcp, %v); Error : %v", lc.logstashAddress, err))
 		}
 		hook := logstashhook.New(conn, logstashhook.DefaultFormatter(logrus.Fields{"project": lc.project, "module": lc.module}))
 		logrus.AddHook(hook)
@@ -86,7 +85,7 @@ func (lc logConfig) InitialLogConfig() {
 		if !exists(logPath) {
 			err := createFolder(logPath)
 			if err != nil {
-				log.Panicf("createFolder error; Error : %v", err)
+				panic(fmt.Sprintf("createFolder error; Error : %v", err))
 			}
 		}
 		path := logPath + lc.module + ".log"
@@ -99,7 +98,7 @@ func (lc logConfig) InitialLogConfig() {
 			rotatelogs.WithRotationTime(WithRotationTime),
 		)
 		if err != nil {
-			log.Panicf("rotatelogs.New [info writer] error; Error : %v", err)
+			panic(fmt.Sprintf("rotatelogs.New [info writer] error; Error : %v", err))
 		}
 		errorWriter, err := rotatelogs.New(
 			logPath+"error.log.%Y%m%d",
@@ -108,7 +107,7 @@ func (lc logConfig) InitialLogConfig() {
 			rotatelogs.WithRotationTime(WithRotationTime),
 		)
 		if err != nil {
-			log.Panicf("rotatelogs.New [error writer] error; Error : %v", err)
+			panic(fmt.Sprintf("rotatelogs.New [error writer] error; Error : %v", err))
 		}
 		logrus.AddHook(lfshook.NewHook(
 			lfshook.WriterMap{

@@ -2,9 +2,9 @@ package mysqlclient
 
 import (
 	"database/sql"
+	"fmt"
 	"github.com/mitchellh/mapstructure"
 	"github.com/stretchr/testify/assert"
-	"log"
 	"strconv"
 	"testing"
 	"time"
@@ -105,7 +105,7 @@ const (
 func TestClientInsert(t *testing.T) {
 	InitialDBClient(dataSourceName, maxIdleConns, maxOpenConns)
 	id, err := Client.Insert(insert_sql, "test name", 21, "1989-06-09", "This is description", false)
-	log.Println("id : ", id)
+	fmt.Println("id : ", id)
 	assert.Nil(t, err)
 	assert.EqualValues(t, id, 1)
 }
@@ -127,7 +127,7 @@ func TestClientBatchInsert(t *testing.T) {
 func TestClientUpdate(t *testing.T) {
 	InitialDBClient(dataSourceName, maxIdleConns, maxOpenConns)
 	count, err := Client.Update(update_sql, "test name update", "--", "2000-01-01", "This is update result", true, 1)
-	log.Println("count : ", count)
+	fmt.Println("count : ", count)
 	assert.Nil(t, err)
 	assert.EqualValues(t, count, 1)
 }
@@ -201,7 +201,7 @@ func TestClientFindOne(t *testing.T) {
 }
 
 func TestClientFindList(t *testing.T) {
-	log.Printf("initial db client. dataSourceName : %v ; maxIdleConns : %v ; maxOpenConns : %v", dataSourceName, maxIdleConns, maxOpenConns)
+	fmt.Printf("initial db client. dataSourceName : %v ; maxIdleConns : %v ; maxOpenConns : %v", dataSourceName, maxIdleConns, maxOpenConns)
 	InitialDBClient(dataSourceName, maxIdleConns, maxOpenConns)
 	var userArray []Userinfo
 	err := Client.FindList(findAll_sql, &userArray)
@@ -212,7 +212,7 @@ func TestClientFindList(t *testing.T) {
 }
 
 func TestClientFind(t *testing.T) {
-	log.Printf("initial db client. dataSourceName : %v ; maxIdleConns : %v ; maxOpenConns : %v", dataSourceName, maxIdleConns, maxOpenConns)
+	fmt.Printf("initial db client. dataSourceName : %v ; maxIdleConns : %v ; maxOpenConns : %v", dataSourceName, maxIdleConns, maxOpenConns)
 	InitialDBClient(dataSourceName, maxIdleConns, maxOpenConns)
 	results, err := Client.Find(findAll_sql, 21, true, "%update name%")
 	assert.Nil(t, err)
@@ -241,7 +241,7 @@ func TestClientFind(t *testing.T) {
 func TestClientCount(t *testing.T) {
 	InitialDBClient(dataSourceName, maxIdleConns, maxOpenConns)
 	count, err := Client.Count(count_sql, 25)
-	log.Println("count : ", count)
+	fmt.Println("count : ", count)
 	assert.Nil(t, err)
 	assert.EqualValues(t, count, 3)
 }
@@ -249,7 +249,7 @@ func TestClientCount(t *testing.T) {
 func TestClientDelete(t *testing.T) {
 	InitialDBClient(dataSourceName, maxIdleConns, maxOpenConns)
 	count, err := Client.Delete(delete_sql, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23)
-	log.Println("count : ", count)
+	fmt.Println("count : ", count)
 	assert.Nil(t, err)
 	assert.EqualValues(t, count, 10)
 }

@@ -94,7 +94,7 @@ type LogstashFormatter struct {
 }
 
 var (
-	logstashFields   = logrus.Fields{"@version": "1", "type": "log"}
+	logstashFields   = logrus.Fields{"@version": "1", "type": "project-log"}
 	logstashFieldMap = logrus.FieldMap{
 		logrus.FieldKeyTime: "@timestamp",
 		logrus.FieldKeyMsg:  "message",

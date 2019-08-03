@@ -1,9 +1,9 @@
 package envconfig
 
 import (
+	"fmt"
 	"github.com/BurntSushi/toml"
 	"github.com/stretchr/testify/assert"
-	"log"
 	"testing"
 )
 
@@ -91,7 +91,7 @@ func TestParseConfig(t *testing.T) {
 	ParseConfig("/Users/cookie/go/gopath/src/go-sillyhat-cloud/config.conf", func(content []byte) {
 		err := toml.Unmarshal(content, &conf)
 		if err != nil {
-			log.Panicf("unmarshal toml object error. %v", err)
+			panic(fmt.Sprintf("unmarshal toml object error. %v", err))
 		}
 	})
 	assert.NotNil(t, conf)
