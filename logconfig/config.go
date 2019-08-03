@@ -52,7 +52,7 @@ func NewLogConfig(logLevel logrus.Level, reportCaller bool, project string, modu
 }
 
 func (lc logConfig) String() string {
-	return fmt.Sprintf(`logConfig{logLevel='%s', reportCaller=%t, project='%s', module='%s', openLogstash=%t, logstashAddress='%s', openLogfile=%t, filePath='%s'}`, lc.logLevel, lc.reportCaller, lc.project, lc.module, lc.openLogstash, lc.logstashAddress, lc.openLogfile, lc.filePath)
+	return fmt.Sprintf(`logConfig{logLevel=%s, reportCaller=%t, project=%s, module=%s, openLogstash=%t, logstashAddress=%s, openLogfile=%t, filePath=%s}`, lc.logLevel, lc.reportCaller, lc.project, lc.module, lc.openLogstash, lc.logstashAddress, lc.openLogfile, lc.filePath)
 }
 
 func (lc logConfig) InitialLogConfig() {
@@ -76,7 +76,7 @@ func (lc logConfig) InitialLogConfig() {
 			logrus.Fatal(err)
 		}
 		if err != nil {
-			log.Panicf("net.Dial('tcp', %v); Error : %v", lc.logstashAddress, err)
+			log.Panicf("net.Dial(tcp, %v); Error : %v", lc.logstashAddress, err)
 		}
 		hook := logstashhook.New(conn, logstashhook.DefaultFormatter(logrus.Fields{"project": lc.project, "module": lc.module}))
 		logrus.AddHook(hook)

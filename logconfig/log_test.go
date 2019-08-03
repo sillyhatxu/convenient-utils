@@ -9,7 +9,7 @@ import (
 
 func init() {
 	logConfig := NewLogConfig(
-		logrus.InfoLevel, true, "test", "test-backend", true, "localhost:51401", false, "",
+		logrus.InfoLevel, true, "test-backend", "test-backend", true, "logstash:5000", false, "",
 	)
 	logConfig.InitialLogConfig()
 }
@@ -19,6 +19,6 @@ func TestInputLogstash(t *testing.T) {
 	for {
 		logrus.Infof("test info[%d] %v", i, gotime.FormatLocation(time.Now()))
 		i++
-		time.Sleep(1 * time.Second)
+		time.Sleep(5 * time.Second)
 	}
 }
