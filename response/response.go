@@ -8,45 +8,43 @@ import (
 )
 
 type Entity struct {
-	Code  ResponseCode `json:"code"`
-	Data  interface{}  `json:"data"`
-	Msg   string       `json:"message"`
-	Extra interface{}  `json:"extra"`
+	Code  string      `json:"code"`
+	Data  interface{} `json:"data"`
+	Msg   string      `json:"message"`
+	Extra interface{} `json:"extra"`
 }
 
-type ResponseCode int
-
 const (
-	Success ResponseCode = 1
+	Success string = "SUCCESS"
 
-	BusinessError ResponseCode = 0
+	BusinessError string = "BUSINESS_ERROR"
 
-	Error ResponseCode = -1
+	Error string = "SERVER_ERROR"
 
-	ParamsValidateError ResponseCode = -2
+	ParamsValidateError string = "PARAMS_VALIDATE_ERROR"
 
-	NotFoundError ResponseCode = -3
+	NotFoundError string = "NOT_FOUND_ERROR"
 
-	ImproperOperationError ResponseCode = -4
+	ImproperOperationError string = "IMPROPER_OPERATION_ERROR"
 
-	UnauthorizedError ResponseCode = -5
+	UnauthorizedError string = "UNAUTHORIZED_ERROR"
 )
 
 var (
-	SuccessMessage                = ResponseMessage{MsgZH: "服务器异常", MsgEN: "SUCCESS"}
-	ErrorMessage                  = ResponseMessage{MsgZH: "服务器异常", MsgEN: "Server Error"}
-	ParamsValidateErrorMessage    = ResponseMessage{MsgZH: "系统验证错误", MsgEN: "System Validate Error"}
-	NotFoundErrorMessage          = ResponseMessage{MsgZH: "服务器异常，未找到相关事件", MsgEN: "Server Error. Not found"}
-	ImproperOperationErrorMessage = ResponseMessage{MsgZH: "操作不合法", MsgEN: "This operation is not appropriate"}
-	UnauthorizedErrorMessage      = ResponseMessage{MsgZH: "您无权访问此页面", MsgEN: "You are not authorized to access this page"}
+	SuccessMessage                = ResMessage{MsgZH: "服务器异常", MsgEN: "SUCCESS"}
+	ErrorMessage                  = ResMessage{MsgZH: "服务器异常", MsgEN: "Server Error"}
+	ParamsValidateErrorMessage    = ResMessage{MsgZH: "系统验证错误", MsgEN: "System Validate Error"}
+	NotFoundErrorMessage          = ResMessage{MsgZH: "服务器异常，未找到相关事件", MsgEN: "Server Error. Not found"}
+	ImproperOperationErrorMessage = ResMessage{MsgZH: "操作不合法", MsgEN: "This operation is not appropriate"}
+	UnauthorizedErrorMessage      = ResMessage{MsgZH: "您无权访问此页面", MsgEN: "You are not authorized to access this page"}
 )
 
-type ResponseMessage struct {
+type ResMessage struct {
 	MsgZH string
 	MsgEN string
 }
 
-func (rm ResponseMessage) GetResponseMessage(languageTag language.Tag) string {
+func (rm ResMessage) GetResponseMessage(languageTag language.Tag) string {
 	switch languageTag {
 	case language.English:
 		return rm.MsgEN
@@ -115,7 +113,7 @@ func ServerUnauthorizedError(data interface{}, extra interface{}) error {
 }
 
 type SillyHatError struct {
-	Code  ResponseCode  `json:"code"`
+	Code  string        `json:"code"`
 	Data  interface{}   `json:"data"`
 	Msg   string        `json:"message"`
 	Extra interface{}   `json:"extra"`

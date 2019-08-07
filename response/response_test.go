@@ -8,7 +8,7 @@ import (
 )
 
 func TestSillyHatError(t *testing.T) {
-	test1 := SillyHatError{Code: 1, Data: "data", Msg: "Msg", Extra: "Extra"}
+	test1 := SillyHatError{Code: "SUCCESS", Data: "data", Msg: "Msg", Extra: "Extra"}
 	test1JSON, err := json.Marshal(test1)
 	fmt.Println(string(test1JSON))
 	fmt.Println(test1.Error())
