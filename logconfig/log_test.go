@@ -13,7 +13,7 @@ func init() {
 		true,
 		"test-backend",
 		"test-backend",
-		true,
+		false,
 		//"logstash:5000",
 		"localhost:5000",
 		true,
@@ -27,6 +27,7 @@ func TestInputLogstash(t *testing.T) {
 	var i int64
 	for {
 		logrus.Infof("test info[%d] %v", i, gotime.FormatLocation(time.Now()))
+		logrus.Errorf("test info[%d] %v", i, gotime.FormatLocation(time.Now()))
 		i++
 		time.Sleep(5 * time.Second)
 	}

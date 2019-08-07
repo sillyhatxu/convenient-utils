@@ -102,7 +102,7 @@ func (lc logConfig) InitialLogConfig() {
 		WithRotationTime := time.Duration(24) * time.Hour
 		infoWriter, err := rotatelogs.New(
 			lc.filePath+"info.log.%Y%m%d",
-			rotatelogs.WithLinkName(lc.filePath+lc.module+"-info.log"),
+			rotatelogs.WithLinkName(lc.filePath),
 			rotatelogs.WithMaxAge(WithMaxAge),
 			rotatelogs.WithRotationTime(WithRotationTime),
 		)
@@ -111,7 +111,7 @@ func (lc logConfig) InitialLogConfig() {
 		}
 		errorWriter, err := rotatelogs.New(
 			lc.filePath+"error.log.%Y%m%d",
-			rotatelogs.WithLinkName(lc.filePath+lc.module+"-error.log"),
+			rotatelogs.WithLinkName(lc.filePath),
 			rotatelogs.WithMaxAge(WithMaxAge),
 			rotatelogs.WithRotationTime(WithRotationTime),
 		)
