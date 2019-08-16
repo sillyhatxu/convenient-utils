@@ -1,6 +1,7 @@
 package md5
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -16,4 +17,10 @@ func TestMD5(t *testing.T) {
 	md5LongUpper := EncryptUpper("xushikuanissillyhatthisislongsrc")
 	assert.EqualValues(t, len(md5LongUpper), 32)
 	assert.EqualValues(t, md5LongUpper, "78757368696B75616E697373696C6C79")
+}
+
+func TestMD5Temp(t *testing.T) {
+	src := "123456"
+	md5 := EncryptUpper(src)
+	fmt.Println(md5)
 }
