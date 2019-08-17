@@ -47,7 +47,7 @@
 
 [[constraint]]
   name = "github.com/go-redis/redis"
-  version = "6.15.3"
+  version = "6.15.4"
 
 [[constraint]]
   name = "github.com/go-sql-driver/mysql"
@@ -56,6 +56,10 @@
 [[constraint]]
   name = "github.com/lestrrat-go/file-rotatelogs"
   version = "2.2.0"
+
+[[constraint]]
+  name = "github.com/mattn/go-sqlite3"
+  version = "1.11.0"
 
 [[constraint]]
   name = "github.com/mitchellh/mapstructure"
@@ -87,7 +91,7 @@
 
 [[constraint]]
   name = "github.com/stretchr/testify"
-  version = "1.3.0"
+  version = "1.4.0"
 
 [[constraint]]
   name = "golang.org/x/text"
