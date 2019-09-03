@@ -1,6 +1,7 @@
 package logstashhook
 
 import (
+	"encoding/json"
 	"github.com/sirupsen/logrus"
 	"io"
 	"sync"
@@ -37,18 +38,33 @@ func (h Hook) Fire(e *logrus.Entry) error {
 	if err != nil {
 		return err
 	}
-	//fmt.Println("---------------------------------------------")
-	//fmt.Println(string(dataBytes))
-	//fmt.Println("---------------------------------------------")
-	_, err = h.writer.Write(dataBytes)
-	//if err != nil {
-	//write tcp [::1]:60786->[::1]:51401: write: broken pipe
-	//Failed to fire hook: dial tcp 127.0.0.1:51401: connect: connection refused
-	//if strings.ContainsAny(err.Error(), "broken pipe"){
-	//
-	//}
-	//}
-	return err
+	var logEntry LogEntry
+	err = json.Unmarshal(dataBytes, &logEntry)
+	if err != nil {
+		return err
+	}
+	if logEntry.Level == "error" {
+		logEntry.Level = "ERROR"
+		formatJSON, err := json.Marshal(logEntry)
+		if err != nil {
+			return err
+		}
+		_, err = h.writer.Write(formatJSON)
+		return err
+	} else {
+		_, err = h.writer.Write(dataBytes)
+		return err
+	}
+}
+
+type LogEntry struct {
+	Timestamp string `json:"@timestamp"`
+	Version   string `json:"@version"`
+	Level     string `json:"level"`
+	Message   string `json:"message"`
+	Type      string `json:"type"`
+	Module    string `json:"module"`
+	Project   string `json:"project"`
 }
 
 // Levels returns all logrus levels.

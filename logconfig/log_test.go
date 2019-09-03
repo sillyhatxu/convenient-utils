@@ -1,6 +1,7 @@
 package logconfig
 
 import (
+	"fmt"
 	"github.com/sillyhatxu/convenient-utils/gotime"
 	"github.com/sirupsen/logrus"
 	"testing"
@@ -15,12 +16,17 @@ func init() {
 		"test-backend",
 		true,
 		//"logstash:5000",
-		"localhost:5000",
-		true,
+		"localhost:51401",
+		false,
 		"/Users/shikuanxu/go/src/github.com/sillyhatxu/convenient-utils/logs",
 	)
 
 	logConfig.InitialLogConfig()
+}
+
+func TestLogstash(t *testing.T) {
+	logrus.Infof("test : %v", "haha")
+	logrus.Errorf("test err : %v", fmt.Errorf("create error"))
 }
 
 func TestInputLogstash(t *testing.T) {
